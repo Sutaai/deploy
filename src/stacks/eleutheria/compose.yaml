@@ -1,0 +1,55 @@
+name: bookstack-eleutheria
+
+services:
+  bookstack:
+    restart: unless-stopped
+    image: lscr.io/linuxserver/bookstack:26.03.5   # https://github.com/linuxserver/docker-bookstack/pkgs/container/bookstack
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: Europe/Paris
+      # App config & session
+      APP_LANG: fr
+      APP_TIMEZONE: Europe/Paris
+      APP_URL: https://wikiqueer.eu
+      APP_KEY: $APP_KEY
+      APP_PROXIES: $APP_PROXIES
+      SESSION_LIFETIME: $SESSION_LIFETIME
+      # DB
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      DB_DATABASE: $DB_DATABASE
+      DB_USERNAME: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+      # Discord intergration
+      DISCORD_APP_ID: $DISCORD_APP_ID
+      DISCORD_APP_SECRET: $DISCORD_APP_SECRET
+      DISCORD_AUTO_REGISTER: false
+      DISCORD_AUTO_CONFIRM_EMAIL: false
+      # Github integration
+      GITHUB_APP_ID: $GITHUB_APP_ID
+      GITHUB_APP_SECRET: $GITHUB_APP_SECRET
+      # Mail config
+      MAIL_DRIVER: smtp
+      MAIL_VERIFY_SSL: true
+      MAIL_HOST: $MAIL_HOST
+      MAIL_PORT: $MAIL_PORT
+      MAIL_ENCRYPTION: $MAIL_ENCRYPTION
+      MAIL_USERNAME: $MAIL_USERNAME
+      MAIL_PASSWORD: $MAIL_PASSWORD
+      MAIL_FROM: $MAIL_FROM
+      MAIL_FROM_NAME: Wiki Queer
+
+    volumes:
+      - bookstack_app_data:/config
+    ports:
+      - 127.0.0.1:6546:80
+    networks:
+      access-mariadb:
+
+networks:
+  access-mariadb:
+    external: true
+
+volumes:
+  bookstack_app_data:

@@ -1,0 +1,25 @@
+name: Find encrypted files
+
+on:
+  workflow_call:
+    outputs:
+      files:
+        description: List of encrypted files. Space separated.
+        value: ${{ jobs.find-files.outputs.files }}
+
+jobs:
+  find-files:
+    name: Find files
+    runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.compute.outputs.firstword }}
+
+    steps:
+      - name: Install glob
+        run: sudo apt install -y glob
+ 
+      - id: compute
+        run: |
+          FILES="files="
+          for file in $(find . -name .env); do echo "FILES+=$file "; done
+          echo $FILES >> $GITHUB_OUTPUT

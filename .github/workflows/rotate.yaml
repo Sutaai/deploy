@@ -1,0 +1,44 @@
+name: Rotate files encryption
+
+on:
+  schedule:
+    - cron: 0 0 1 * * # Every 1st of the month at 0h00
+  workflow_dispatch:
+
+jobs:
+  rotate:
+    environment: production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - name: Install SOPS
+        run: |
+          curl -LO https://github.com/getsops/sops/releases/download/v3.13.1/sops-v3.13.1.linux.amd64
+          echo "620a9d7e3352ababeca6908cea24a6e8b14ce89a448ddbd3f94f1ef3398f470a  sops-v3.13.1.linux.amd64" | sha256sum -c -          
+
+          mv sops-v3.13.1.linux.amd64 /usr/local/bin/sops
+          chmod +x /usr/local/bin/sops
+
+      - id: files
+        name: Obtain files list
+        uses: ./.github/workflows/find-encrypted-files.yaml
+
+      - name: Rotate files
+        env:
+          FILES: ${{ jobs.files.outputs.files }}
+        run: |
+          # Source - https://stackoverflow.com/a/918931
+          # Posted by Johannes Schaub - litb, modified by community. See post 'Timeline' for change history
+          # Retrieved 2026-06-19, License - CC BY-SA 4.0
+
+          IFS=' ' read -ra ADDR <<< "$FILES"
+          for i in "${ADDR[@]}"; do
+            sops rotate "$i"
+          done
+
+      - name: Check Git status
+        run: |
+          git status
