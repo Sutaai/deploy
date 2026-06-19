@@ -1,9 +1,19 @@
 name: Find encrypted files
 description: Find encrypted files in the repository.
 
+outputs:
+  files:
+    description: The list of encrypted files in the repository. Space separated.
+    value: ${{ steps.compute.outputs.files }}
+
 runs:
   using: composite
   steps:
-  - run: ${{ github.action_path }}/find-encrypted-files.sh
-    id: compute
+  - id: compute
+    run: |
+      sudo apt install -y glob 
+
+      FILES=""
+      for file in $(find . -name .env); do echo "FILES+=$file "; done
+      echo "files=$FILES" >> $GITHUB_OUTPUT
     shell: bash
