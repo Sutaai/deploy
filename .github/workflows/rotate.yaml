@@ -28,6 +28,7 @@ jobs:
 
       - name: Rotate files
         env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
           FILES: ${{ steps.files.outputs.files }}
         run: |
           # Source - https://stackoverflow.com/a/918931

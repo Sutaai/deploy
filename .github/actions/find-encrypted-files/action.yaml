@@ -13,7 +13,7 @@ runs:
     name: Compute files list
     run: |
       FILES=""
-      for file in $(find . -name .env); do FILES+="$file "; done
+      for file in $(find . -name .env); do FILES+="$file;"; done
       echo "Files: $FILES"
-      echo "files=$FILES" >> $GITHUB_OUTPUT
+      echo "files=${FILES%?}" >> $GITHUB_OUTPUT
     shell: bash
