@@ -8,12 +8,16 @@ outputs:
 
 runs:
   using: composite
-  steps:
-  - id: compute
-    run: |
-      sudo apt install -y glob 
+  steps: 
+  - name: Install glob
+    run: sudo apt install -y glob
+    shell: bash
 
+  - id: compute
+    name: Compute files list
+    run: |
       FILES=""
       for file in $(find . -name .env); do echo "FILES+=$file "; done
+      echo "Files: $FILES"
       echo "files=$FILES" >> $GITHUB_OUTPUT
     shell: bash
