@@ -8,11 +8,7 @@ outputs:
 
 runs:
   using: composite
-  steps: 
-  - name: Install glob
-    run: sudo apt install -y glob
-    shell: bash
-
+  steps:
   - id: compute
     name: Compute files list
     run: |
