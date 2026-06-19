@@ -28,7 +28,7 @@ jobs:
 
       - name: Rotate files
         env:
-          FILES: ${{ jobs.files.outputs.files }}
+          FILES: ${{ steps.files.outputs.files }}
         run: |
           # Source - https://stackoverflow.com/a/918931
           # Posted by Johannes Schaub - litb, modified by community. See post 'Timeline' for change history
