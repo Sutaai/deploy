@@ -10,9 +10,15 @@ jobs:
     environment: production
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+            ref: rotate-files
 
       - name: Install SOPS
         run: |
@@ -35,11 +41,22 @@ jobs:
           # Posted by Johannes Schaub - litb, modified by community. See post 'Timeline' for change history
           # Retrieved 2026-06-19, License - CC BY-SA 4.0
 
-          IFS=' ' read -ra ADDR <<< "$FILES"
+          IFS=';' read -ra ADDR <<< "$FILES"
           for i in "${ADDR[@]}"; do
-            sops rotate "$i"
+            sops rotate -i "$i"
           done
 
-      - name: Check Git status
-        run: |
-          git status
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: file-encryption-rotation
+          title: "chore: encrypted file rotation"
+          body: |
+            This is an automated pull request to publish newly rotated encrypted files in the repository's upstream.
+          assignees: Sutaai
+          reviewers: Sutaai
+          commit-message: |
+            Automated file encryption rotation
+
+            This is an automatic PR to automatically rotate the file's encryption in the repository.
+          
