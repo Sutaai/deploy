@@ -4,6 +4,6 @@ description: Find encrypted files in the repository.
 runs:
   using: composite
   steps:
-  - run: find-encrypted-files.sh
+  - run: ${{ github.action_path }}/find-encrypted-files.sh
     id: compute
     shell: bash
