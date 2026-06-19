@@ -17,14 +17,14 @@ jobs:
       - name: Install SOPS
         run: |
           curl -LO https://github.com/getsops/sops/releases/download/v3.13.1/sops-v3.13.1.linux.amd64
-          echo "620a9d7e3352ababeca6908cea24a6e8b14ce89a448ddbd3f94f1ef3398f470a  sops-v3.13.1.linux.amd64" | sha256sum -c -          
+          echo "620a9d7e3352ababeca6908cea24a6e8b14ce89a448ddbd3f94f1ef3398f470a  sops-v3.13.1.linux.amd64" | sha256sum -c --ignore-missing -
 
           mv sops-v3.13.1.linux.amd64 /usr/local/bin/sops
           chmod +x /usr/local/bin/sops
 
       - id: files
         name: Obtain files list
-        uses: ./.github/workflows/find-encrypted-files.yaml
+        uses: ./.github/actions/find-encrypted-files
 
       - name: Rotate files
         env:
