@@ -1,0 +1,20 @@
+name: Lint files
+
+on:
+  push:
+
+jobs:
+  rotate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - name: Run ansible-lint
+        # v26.4.0
+        uses: ansible/ansible-lint@5fac056c45595896c973fbde871f01f6cb14d74c
+        with:
+          setup_python: true
+          python_version: 3.14
+          working_directory: "src/ansible"

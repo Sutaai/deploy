@@ -1,0 +1,12 @@
+- name: Deploy new Docker compose files to host
+  hosts: docker
+  remote_user: docker
+
+  tasks:
+  - name: Upload files to deployment folder
+    ansible.builtin.copy:
+      src: ./src/stacks
+      dest: /home/docker/stacks
+      owner: docker
+      group: docker
+      mode: u=rw,g=rw,o=

@@ -1,0 +1,22 @@
+name: mariadb
+
+services:
+  db:
+    restart: unless-stopped
+    image: mariadb:12
+    environment:
+      MARIADB_ROOT_PASSWORD: $MARIADB_ROOT_PASSWORD
+      MARIADB_AUTO_UPGRADE: 1
+
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    ports:
+      - 127.0.0.1:3306:3306
+    networks:
+      access-mariadb:
+
+networks:
+  access-mariadb:
+
+volumes:
+  mariadb-data:
