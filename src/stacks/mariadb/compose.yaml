@@ -3,7 +3,7 @@ name: mariadb
 services:
   db:
     restart: unless-stopped
-    image: mariadb:12
+    image: mariadb:12@sha256:628f228f0fd5913a220438693576b29b6fe4dc1fa0a1298c0e98579fae28635f
     environment:
       MARIADB_ROOT_PASSWORD: $MARIADB_ROOT_PASSWORD
       MARIADB_AUTO_UPGRADE: 1
