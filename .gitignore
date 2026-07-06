@@ -1,2 +1,4 @@
 keys/private/*
 !keys/private/.gitignore
+
+/.env
