@@ -3,7 +3,7 @@ name: bookstack-eleutheria
 services:
   bookstack:
     restart: unless-stopped
-    image: lscr.io/linuxserver/bookstack:26.03.5   # https://github.com/linuxserver/docker-bookstack/pkgs/container/bookstack
+    image: lscr.io/linuxserver/bookstack:26.05.20260608@sha256:e3c387ac44a20fa29abcae8426e3e0d8c88b4ccf95d3c091fd9d96c8d0edcd8e   # https://github.com/linuxserver/docker-bookstack/pkgs/container/bookstack
     environment:
       PUID: $PUID
       PGID: $PGID
