@@ -5,6 +5,7 @@ ansible = { version = "latest", pipx_args = "--include-deps", uvx = false }
 pipx = "1.17"
 prek = "0"
 uv = "0.13"
+"pipx:ansible-lint" = "latest"
 
 [env]
 _ = { file = ".env" }
