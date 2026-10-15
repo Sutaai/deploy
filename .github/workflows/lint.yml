@@ -2,6 +2,8 @@ name: Lint files
 
 on:
   push:
+    paths:
+      - src/ansible/playbooks/**/*
 
 jobs:
   lint:
