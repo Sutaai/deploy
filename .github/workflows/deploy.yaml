@@ -20,4 +20,4 @@ jobs:
 
       - name: Install tools
         timeout-minutes: 5
-        run: mise install
+        run: mise install --yes

@@ -1,7 +1,7 @@
 [tools]
 age = "1.3"
 ansible = { version = "latest", pipx_args = "--include-deps", uvx = false }
-"cargo:https://codeberg.org/Sutaai/Ragers" = { version = "latest", bin = "ragers" }
+"cargo:https://codeberg.org/Sutaai/Ragers" = { version = "latest", bin = "ragers", crate = "ragers" }
 pipx = "1.17"
 prek = "0"
 uv = "0.13"
