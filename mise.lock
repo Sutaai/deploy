@@ -7,31 +7,43 @@ backend = "aqua:FiloSottile/age"
 [tools.age."platforms.linux-arm64"]
 checksum = "sha256:6b8dc4333c53a5a57c9e5834e3a48f92605d7154014cd07269ff3327db5d37f4"
 url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541932"
 provenance = "github-attestations"
 
 [tools.age."platforms.linux-arm64-musl"]
 checksum = "sha256:6b8dc4333c53a5a57c9e5834e3a48f92605d7154014cd07269ff3327db5d37f4"
 url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541932"
 provenance = "github-attestations"
 
 [tools.age."platforms.linux-x64"]
 checksum = "sha256:cbe24006683f8eb669266162894b9a522a1af52f2665fbc63a4bb032ed26ac10"
 url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541903"
 provenance = "github-attestations"
 
 [tools.age."platforms.linux-x64-musl"]
 checksum = "sha256:cbe24006683f8eb669266162894b9a522a1af52f2665fbc63a4bb032ed26ac10"
 url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541903"
 provenance = "github-attestations"
 
 [tools.age."platforms.macos-arm64"]
 checksum = "sha256:e2020b073c44f692685a24d6abc378817eb81ffaaf49fd0531ef8565f767f2f5"
 url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541897"
+provenance = "github-attestations"
+
+[tools.age."platforms.macos-x64"]
+checksum = "sha256:1d1e4bc66e1427edad7739ae7616157de0e79db8b6d2a1497d7d9925fb06a539"
+url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-darwin-amd64.tar.gz"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541887"
 provenance = "github-attestations"
 
 [tools.age."platforms.windows-x64"]
 checksum = "sha256:f48d8f8f9ebe903ab5027ed067652f2cc1db94bc206976430133b905dcd8e8c7"
 url = "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-windows-amd64.zip"
+url_api = "https://api.github.com/repos/FiloSottile/age/releases/assets/535541937"
 provenance = "github-attestations"
 
 [[tools.ansible]]
@@ -51,32 +63,38 @@ bin = "ragers"
 crate = "ragers"
 
 [[tools.pipx]]
-version = "1.18.2"
+version = "1.18.3"
 backend = "aqua:pypa/pipx"
 
 [tools.pipx."platforms.linux-arm64"]
-checksum = "sha256:28adcb34dc724eb8ea1733c05edc8cfe91e465443eed0d3c89cebd69a664c0f2"
-url = "https://github.com/pypa/pipx/releases/download/1.18.2/pipx.pyz"
+checksum = "sha256:863ff59a1db37d819df28f6497653cba292ff350b372622276f957f3d7192088"
+url = "https://github.com/pypa/pipx/releases/download/1.18.3/pipx.pyz"
+url_api = "https://api.github.com/repos/pypa/pipx/releases/assets/650244903"
 
 [tools.pipx."platforms.linux-arm64-musl"]
-checksum = "sha256:28adcb34dc724eb8ea1733c05edc8cfe91e465443eed0d3c89cebd69a664c0f2"
-url = "https://github.com/pypa/pipx/releases/download/1.18.2/pipx.pyz"
+checksum = "sha256:863ff59a1db37d819df28f6497653cba292ff350b372622276f957f3d7192088"
+url = "https://github.com/pypa/pipx/releases/download/1.18.3/pipx.pyz"
+url_api = "https://api.github.com/repos/pypa/pipx/releases/assets/650244903"
 
 [tools.pipx."platforms.linux-x64"]
-checksum = "sha256:28adcb34dc724eb8ea1733c05edc8cfe91e465443eed0d3c89cebd69a664c0f2"
-url = "https://github.com/pypa/pipx/releases/download/1.18.2/pipx.pyz"
+checksum = "sha256:863ff59a1db37d819df28f6497653cba292ff350b372622276f957f3d7192088"
+url = "https://github.com/pypa/pipx/releases/download/1.18.3/pipx.pyz"
+url_api = "https://api.github.com/repos/pypa/pipx/releases/assets/650244903"
 
 [tools.pipx."platforms.linux-x64-musl"]
-checksum = "sha256:28adcb34dc724eb8ea1733c05edc8cfe91e465443eed0d3c89cebd69a664c0f2"
-url = "https://github.com/pypa/pipx/releases/download/1.18.2/pipx.pyz"
+checksum = "sha256:863ff59a1db37d819df28f6497653cba292ff350b372622276f957f3d7192088"
+url = "https://github.com/pypa/pipx/releases/download/1.18.3/pipx.pyz"
+url_api = "https://api.github.com/repos/pypa/pipx/releases/assets/650244903"
 
 [tools.pipx."platforms.macos-arm64"]
-checksum = "sha256:28adcb34dc724eb8ea1733c05edc8cfe91e465443eed0d3c89cebd69a664c0f2"
-url = "https://github.com/pypa/pipx/releases/download/1.18.2/pipx.pyz"
+checksum = "sha256:863ff59a1db37d819df28f6497653cba292ff350b372622276f957f3d7192088"
+url = "https://github.com/pypa/pipx/releases/download/1.18.3/pipx.pyz"
+url_api = "https://api.github.com/repos/pypa/pipx/releases/assets/650244903"
 
 [tools.pipx."platforms.macos-x64"]
-checksum = "sha256:28adcb34dc724eb8ea1733c05edc8cfe91e465443eed0d3c89cebd69a664c0f2"
-url = "https://github.com/pypa/pipx/releases/download/1.18.2/pipx.pyz"
+checksum = "sha256:863ff59a1db37d819df28f6497653cba292ff350b372622276f957f3d7192088"
+url = "https://github.com/pypa/pipx/releases/download/1.18.3/pipx.pyz"
+url_api = "https://api.github.com/repos/pypa/pipx/releases/assets/650244903"
 
 [[tools."pipx:ansible-lint"]]
 version = "26.10.1"
@@ -87,38 +105,45 @@ version = "0.5.5"
 backend = "aqua:j178/prek"
 
 [tools.prek."platforms.linux-arm64"]
-checksum = "sha256:e7208e5d42daaa8d9167971e7d2d3388d80cce241d1cecea745a6c88d6b6368e"
-url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-aarch64-unknown-linux-musl.tar.gz"
+checksum = "sha256:420451a13aaf3de670dfe73b25e18dbca0d96bc3b153cc3924b9d01c3b7caa12"
+url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684496"
 provenance = "github-attestations"
 
 [tools.prek."platforms.linux-arm64-musl"]
 checksum = "sha256:e7208e5d42daaa8d9167971e7d2d3388d80cce241d1cecea745a6c88d6b6368e"
 url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684498"
 provenance = "github-attestations"
 
 [tools.prek."platforms.linux-x64"]
-checksum = "sha256:57948d4772f4eb58387ce4a6d619ecd2d8d7e9d765eed6a316f5b3f92c86d951"
-url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-x86_64-unknown-linux-musl.tar.gz"
+checksum = "sha256:5470e4aa0fc0ad9d3de7dfaf088fb746d59c2eda3b173c06418e7c8861a520eb"
+url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684555"
 provenance = "github-attestations"
 
 [tools.prek."platforms.linux-x64-musl"]
 checksum = "sha256:57948d4772f4eb58387ce4a6d619ecd2d8d7e9d765eed6a316f5b3f92c86d951"
 url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684574"
 provenance = "github-attestations"
 
 [tools.prek."platforms.macos-arm64"]
 checksum = "sha256:e4bc3132023b50020e62b073bc3147082828bf250d8b9282850c6f2bed5471b6"
 url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684483"
 provenance = "github-attestations"
 
 [tools.prek."platforms.macos-x64"]
 checksum = "sha256:9ea09639374a34b6f0b7d2a2567c175221cd37e44004e9b1cf591f31f9dda1b3"
 url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684529"
 provenance = "github-attestations"
 
 [tools.prek."platforms.windows-x64"]
 checksum = "sha256:6e52e1723b1b753b977be632a150d5516862471b29c14ad8e7d71685f07769b4"
 url = "https://github.com/j178/prek/releases/download/v0.5.5/prek-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/611684549"
 provenance = "github-attestations"
 
 [[tools.uv]]
@@ -126,36 +151,43 @@ version = "0.13.1"
 backend = "aqua:astral-sh/uv"
 
 [tools.uv."platforms.linux-arm64"]
-checksum = "sha256:345a8308e4d1835cdfaadf692836fd3137a6d45864773f05ad7bf59442b1ba16"
-url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-aarch64-unknown-linux-musl.tar.gz"
+checksum = "sha256:9041c73c99fdc5892cf128140beb354eca9231d502068cc36e6cb53a8e59ad14"
+url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639312990"
 provenance = "github-attestations"
 
 [tools.uv."platforms.linux-arm64-musl"]
 checksum = "sha256:345a8308e4d1835cdfaadf692836fd3137a6d45864773f05ad7bf59442b1ba16"
 url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639313013"
 provenance = "github-attestations"
 
 [tools.uv."platforms.linux-x64"]
-checksum = "sha256:6c86040a8f045ab9adc9e3ec4cdafa03fd00e9a988ed2bf28971c7fc2d0debd0"
-url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-x86_64-unknown-linux-musl.tar.gz"
+checksum = "sha256:eadd9d27c134ab5ac1ffd4473b97a741407f3ea238288f03121fc4deddf90220"
+url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639313223"
 provenance = "github-attestations"
 
 [tools.uv."platforms.linux-x64-musl"]
 checksum = "sha256:6c86040a8f045ab9adc9e3ec4cdafa03fd00e9a988ed2bf28971c7fc2d0debd0"
 url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639313248"
 provenance = "github-attestations"
 
 [tools.uv."platforms.macos-arm64"]
 checksum = "sha256:cfe454573412ff7380d15fc7dae5997ab53ffce72fce0a78e91ddbc84001acd2"
 url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639312976"
 provenance = "github-attestations"
 
 [tools.uv."platforms.macos-x64"]
 checksum = "sha256:bb7b805bdcf3d0bc8c74ceb94569e6b3e8aa35bd492acdbb9d46bf46d9d4ff6b"
 url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639313196"
 provenance = "github-attestations"
 
 [tools.uv."platforms.windows-x64"]
 checksum = "sha256:3b2661a463a5baea7f5076ea2b25ab71d77f36a6c0d809e5350651792f80a672"
 url = "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/639313211"
 provenance = "github-attestations"
