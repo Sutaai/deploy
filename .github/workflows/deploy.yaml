@@ -22,6 +22,8 @@ jobs:
           mkdir ~/.ssh
           echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
+          touch ~/.ssh/known_hosts
+          ssh-keyscan -p 2395 hunter.sutaai.dev >> ~/.ssh/known_hosts
 
       - name: Install mise and tools
         timeout-minutes: 5
@@ -33,4 +35,6 @@ jobs:
           netbird up --setup-key="${{ secrets.NETBIRD_SETUP_KEY }}"
 
       - name: Run Ansible - Push stacks
+        env:
+          ANSIBLE_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         run: mise exec -- ansible-playbook -i ./src/ansible/inventory.yml ./src/ansible/playbooks/push-stacks.yaml

@@ -3,4 +3,5 @@ ungrouped:
     hunter:
       ansible_user: deploy
       ansible_host: 100.127.176.192
+      ansible_ssh_port: 2365
       # ansible_host: hunter.sutaai.dev
