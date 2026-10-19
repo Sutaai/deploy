@@ -22,8 +22,8 @@ jobs:
           mkdir ~/.ssh
           echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          touch ~/.ssh/known_hosts
           ssh-keyscan -p 2395 hunter.sutaai.dev >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
 
       - name: Install mise and tools
         timeout-minutes: 5
