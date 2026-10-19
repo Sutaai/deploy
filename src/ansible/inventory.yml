@@ -1,0 +1,5 @@
+ungrouped:
+  hosts:
+    hunter:
+      ansible_user: deploy
+      ansible_host: hunter.sutaai.dev
