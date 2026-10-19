@@ -27,5 +27,10 @@ jobs:
         timeout-minutes: 5
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
 
+      - name: Install and connect to Netbird network
+        run: |
+          curl -fsSL https://pkgs.netbird.io/install.sh | sh
+          netbird up --setup-key="${{ secrets.NETBIRD_SETUP_KEY }}"
+
       - name: Run Ansible - Push stacks
         run: mise exec -- ansible-playbook -i ./src/ansible/inventory.yml ./src/ansible/playbooks/push-stacks.yaml

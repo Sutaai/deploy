@@ -2,4 +2,5 @@ ungrouped:
   hosts:
     hunter:
       ansible_user: deploy
-      ansible_host: hunter.sutaai.dev
+      ansible_host: 100.127.176.192
+      # ansible_host: hunter.sutaai.dev
