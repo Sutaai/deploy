@@ -30,6 +30,9 @@ jobs:
           ssh-keyscan -p 2395 100.127.176.192 >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
+          eval $(ssh-agent -s)
+          echo "SSH agent started with PID: $SSH_AGENT_PID"
+
       - name: Install mise and tools
         timeout-minutes: 5
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
