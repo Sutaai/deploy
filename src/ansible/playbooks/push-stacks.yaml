@@ -1,0 +1,16 @@
+---
+- name: Deploy Rclone
+  hosts: [hunter]
+
+  tasks:
+    - name: Ensure git is available
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: true
+
+    - name: Clone repository
+      ansible.builtin.git:
+        repo: 'https://github.com/Sutaai/deploy.git'
+        dest: /tmp/deploy-test
+        clone: true

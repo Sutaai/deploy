@@ -9,11 +9,23 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Configure SSH
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openssh-client
+          mkdir ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
       - name: Install mise and tools
         timeout-minutes: 5
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
+
+      - name: Run Ansible - Push stacks
+        run: mise exec -- ansible-playbook -i ./src/ansible/inventory.ini ./src/ansible/playbooks/push-stacks.yaml

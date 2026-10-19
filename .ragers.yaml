@@ -24,3 +24,8 @@ files:
     out: src/stacks/mariadb/.env.age
     recipients:
       - group:all
+
+  - src: src/stacks/webserver/Caddyfile
+    out: src/stacks/webserver/Caddyfile.age
+    recipients:
+      - group:all

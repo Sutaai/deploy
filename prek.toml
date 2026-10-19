@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/j178/prek/refs/heads/master/prek.schema.json
+
 [[repos]]
 repo = "builtin"
 
@@ -28,6 +30,5 @@ hooks = [{ id = "conventional-pre-commit", stages = ["commit-msg"] }]
 
 [[repos]]
 repo = "https://codeberg.org/Sutaai/Ragers"
-rev = "653d7a590017cd47faee919aaa151802d565580a"
-
+rev = "653c2dc7410912efd26231db0f2ee863f5d31e62"
 hooks = [{ id = "check-decrypted-files-ragers" }]
