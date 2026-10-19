@@ -30,8 +30,8 @@ jobs:
           ssh-keyscan -p 2395 100.127.176.192 >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
-          eval $(ssh-agent -s)
-          echo "SSH agent started with PID: $SSH_AGENT_PID"
+        # eval $(ssh-agent -s)
+        # echo "SSH agent started with PID: $SSH_AGENT_PID"
 
       - name: Install mise and tools
         timeout-minutes: 5
@@ -39,5 +39,6 @@ jobs:
 
       - name: Run Ansible - Push stacks
         env:
+          ANSIBLE_SSH_AGENT: auto
           ANSIBLE_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         run: mise exec -- ansible-playbook -i ./src/ansible/inventory.yml ./src/ansible/playbooks/push-stacks.yaml
