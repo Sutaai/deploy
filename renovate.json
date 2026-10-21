@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices"
+  ],
+  "packageRules": [
+    {
+      "changelogUrl": "https://codeberg.org/bookstack/bookstack/releases",
+      "matchPackageNames": [
+        "lscr.io/linuxserver/bookstack"
+      ],
+      "sourceUrl": "https://github.com/BookStackApp/BookStack"
+    }
   ]
 }
