@@ -3,7 +3,20 @@
   "extends": [
     "config:best-practices"
   ],
+  "lockFileMaintenance": {
+    "automerge": true
+  },
   "packageRules": [
+    {
+      "automerge": true,
+      "matchCurrentVersion": "!/^0/",
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "pinDigest",
+        "digest"
+      ]
+    },
     {
       "changelogUrl": "https://codeberg.org/bookstack/bookstack/releases",
       "matchPackageNames": [
