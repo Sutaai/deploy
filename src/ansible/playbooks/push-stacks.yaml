@@ -13,7 +13,7 @@
 
     - name: Copy Eleutheria stack
       ansible.builtin.copy:
-        src: ./src/stacks/eleutheria
+        src: ~/src/stacks/eleutheria
         dest: ~/stacks/eleutheria
         owner: deploy
         group: deploy
