@@ -2,12 +2,12 @@ $schema: https://codeberg.org/Sutaai/Ragers/raw/branch/main/schema/config-v1.jso
 
 recipients:
   sutaai: age1z2lshtw7sm5xwhjnu0sxl6d8dgakzwjf4wgkq6n7hgwm4ekfqelqhckeg9
-  hunter: age12qkdl6g598wmv5mfxujvdt6xcxvuxvd0n046mrpwgju5qn0l5qnqxv9y8f
+  github: age1wca877c5af6vf4cs4evykug3qkj83j3vl53dlx0fwmzyj6zrqucs6kdc87
 
   groups:
     all:
       - sutaai
-      - hunter
+      - github
 
 files:
   - src: src/rclone/hunter.conf
