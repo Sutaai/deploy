@@ -27,11 +27,8 @@ jobs:
           echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           echo "Adding host to known hosts"
-          ssh-keyscan -p 2395 100.127.176.192 >> ~/.ssh/known_hosts
+          echo "${{ vars.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
-
-        # eval $(ssh-agent -s)
-        # echo "SSH agent started with PID: $SSH_AGENT_PID"
 
       - name: Install mise and tools
         timeout-minutes: 5
