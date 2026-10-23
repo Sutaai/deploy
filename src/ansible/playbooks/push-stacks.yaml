@@ -3,14 +3,18 @@
   hosts: [hunter]
 
   tasks:
-    - name: Ensure git is available
-      ansible.builtin.apt:
-        name: git
-        state: present
-        update_cache: true
+    - name: Create Eleutheria stack folder
+      ansible.builtin.file:
+        path: ~/stacks/eleutheria
+        state: directory
+        owner: deploy
+        group: deploy
+        mode: '0600'
 
-    - name: Clone repository
-      ansible.builtin.git:
-        repo: 'https://github.com/Sutaai/deploy.git'
-        dest: /tmp/deploy-test
-        clone: true
+    - name: Copy Eleutheria stack
+      ansible.builtin.copy:
+        src: ./src/stacks/eleutheria
+        dest: ~/stacks/eleutheria
+        owner: deploy
+        group: deploy
+        mode: '0600'

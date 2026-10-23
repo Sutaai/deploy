@@ -39,7 +39,11 @@ jobs:
         timeout-minutes: 5
         uses: jdx/mise-action@8418fedb1110381a0d3ba51a7a415d7c1b884550 # v5.2.2
 
-      - name: Run Ansible - Push stacks
+      - name: Decrypt files
+        run: ragers --no-prompt decrypt
+
+      - name: Run Ansible - Push Eleutheria
+      # For now, I'll only test with a single stack, then I'll upgrade to multiples
         env:
           ANSIBLE_SSH_AGENT: auto
           ANSIBLE_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
