@@ -13,8 +13,19 @@
 
     - name: Copy Eleutheria stack
       ansible.builtin.copy:
-        src: ~/src/stacks/eleutheria
-        dest: ~/stacks/eleutheria
+        src: "{{ root }}/src/stacks/eleutheria"
+        dest: ~/stacks/
         owner: deploy
         group: deploy
         mode: '0600'
+
+    - name: Pull images
+      community.docker.docker_compose_v2_pull:
+        project_src: ~/stacks/eleutheria
+
+    - name: Recreate project
+      community.docker.docker_compose_v2:
+        project_src: ~/stacks/eleutheria
+        state: present
+        recreate: always
+        remove_orphans: true

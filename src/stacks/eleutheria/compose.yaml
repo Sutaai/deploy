@@ -43,7 +43,8 @@ services:
     volumes:
       - bookstack_app_data:/config
     ports:
-      - 127.0.0.1:6546:80
+      - 127.0.0.1:55555:80
+      # - 127.0.0.1:6546:80
     networks:
       access-mariadb:
 

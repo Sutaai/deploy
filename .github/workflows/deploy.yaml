@@ -2,10 +2,6 @@ name: Deploy
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-
 
 
 jobs:
@@ -40,6 +36,11 @@ jobs:
       - name: Install mise and tools
         timeout-minutes: 5
         uses: jdx/mise-action@8418fedb1110381a0d3ba51a7a415d7c1b884550 # v5.2.2
+
+      - name: Create identity file
+        run: |
+          echo "${{ secrets.AGE_IDENTITY_NOT_PQ }}" >> .identity
+          chmod 600 .identity
 
       - name: Decrypt files
         run: ragers --no-prompt decrypt
