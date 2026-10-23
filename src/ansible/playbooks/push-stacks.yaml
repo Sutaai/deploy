@@ -1,5 +1,5 @@
 ---
-- name: Deploy Rclone
+- name: Deploy Eleutheria (WIP for stacks)
   hosts: [hunter]
 
   tasks:
@@ -9,7 +9,7 @@
         state: directory
         owner: deploy
         group: deploy
-        mode: '0600'
+        mode: '0700'
 
     - name: Copy Eleutheria stack
       ansible.builtin.copy:
