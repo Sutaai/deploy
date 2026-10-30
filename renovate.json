@@ -16,7 +16,8 @@
         "pin",
         "pinDigest",
         "digest"
-      ]
+      ],
+      "minimumReleaseAge": "7 days"
     },
     {
       "changelogUrl": "https://codeberg.org/bookstack/bookstack/releases",
