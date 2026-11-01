@@ -1,31 +1,30 @@
----
 - name: Deploy Eleutheria (WIP for stacks)
-  hosts: [hunter]
+  hosts:
+    - hunter
 
   tasks:
-    - name: Create Eleutheria stack folder
-      ansible.builtin.file:
-        path: ~/stacks/eleutheria
-        state: directory
+    - name: Check if .age files are present
+      become: false
+      delegate_to: localhost
+      block:
+        - name: Collect .age file
+          ansible.builtin.find:
+            paths: "{{ root }}/src/stacks"
+            patterns: "*.age"
+            recurse: true
+            file_type: file
+          register: result
+
+        - name: Check no .age files exist
+          ansible.builtin.assert:
+            that: result.files | length == 0
+            fail_msg: >
+              {{ result.files | length }} .age file(s) on controller:
+              {% for f in result.files %}- {{ f.path }}{% endfor %}
+
+    - name: Let's try Eleutheria
+      ansible.builtin.include_role:
+        name: push-stack
+      vars:
+        stack: eleutheria
         owner: deploy
-        group: deploy
-        mode: '0700'
-
-    - name: Copy Eleutheria stack
-      ansible.builtin.copy:
-        src: "{{ root }}/src/stacks/eleutheria"
-        dest: ~/stacks/
-        owner: deploy
-        group: deploy
-        mode: '0600'
-
-    - name: Pull images
-      community.docker.docker_compose_v2_pull:
-        project_src: ~/stacks/eleutheria
-
-    - name: Recreate project
-      community.docker.docker_compose_v2:
-        project_src: ~/stacks/eleutheria
-        state: present
-        recreate: always
-        remove_orphans: true

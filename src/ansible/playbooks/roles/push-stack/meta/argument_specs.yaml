@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/role-arg-spec.json
+
+argument_specs:
+  main:
+    short_description: Role to deploy a Docker compose stack
+    author: Sutaai
+
+    options:
+      stack:
+        type: str
+        required: true
+        description: |
+          Name of the stack to deploy. The stack must be declared in the src/stacks to be deployed.
+        example: mariadb  # just to make a joke
+
+      deposit_location:
+        type: path
+        default: "~/stacks/{{ stack }}"
+        description: |
+          Path to where the files will be deposited. By default, this will be set to
+          "~/stacks/{stack}" where "{stack}" is replaced by the corresponding variable.
+
+      owner:
+        type: str
+        required: true
+        description: User to set when creating directories/files.

@@ -1,8 +1,6 @@
-
-
 all:
   vars:
-    root: ../../..
+    root: "{{ inventory_dir }}/../.."
 
 ungrouped:
   hosts:
