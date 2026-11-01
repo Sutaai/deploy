@@ -10,8 +10,8 @@ recipients:
       - github
 
 files:
-  - src: src/rclone/hunter.conf
-    out: src/rclone/hunter.conf.age
+  - src: src/ansible/host_vars/hunter/secrets.yaml
+    out: src/ansible/host_vars/hunter/secrets.yaml.age
     recipients:
       - group:all
 

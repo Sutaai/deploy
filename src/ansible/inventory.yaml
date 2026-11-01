@@ -1,0 +1,9 @@
+
+
+all:
+  vars:
+    root: ../../..
+
+ungrouped:
+  hosts:
+    hunter:

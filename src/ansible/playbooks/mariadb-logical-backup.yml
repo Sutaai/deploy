@@ -1,0 +1,27 @@
+- name: Backup MariaDB using logical backup (mariadb-dump)
+  hosts:
+    - hunter
+
+  tasks:
+    - name: Backup MariaDB databases
+      community.docker.docker_container_exec:
+        container: mariadb
+        argv:
+          - "mariadb-dump"
+          - "--compress"
+          - "--events"
+          - "--lock-all-tables"
+          - "--password={{ mariadb_root_password | mandatory }}"
+          - "--all-databases"
+          - "--result-file=/backup-mariadb-full.sql"
+      no_log: true
+
+    - name: Export backup to system
+      ansible.builtin.command:
+        cmd: "docker container cp --quiet mariadb:/backup-mariadb-full.sql ~/backup-latest-mariadb-full.sql"
+      register: mariadb_export_system
+      changed_when: mariadb_export_system.rc == 0
+
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "Backup export at ~/backup-latest-mariadb-full.sql of managed node"

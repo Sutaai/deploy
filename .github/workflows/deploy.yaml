@@ -47,4 +47,4 @@ jobs:
         env:
           ANSIBLE_SSH_AGENT: auto
           ANSIBLE_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-        run: mise exec -- ansible-playbook -i ./src/ansible/inventory.yml ./src/ansible/playbooks/push-stacks.yaml
+        run: mise exec -- ansible-playbook -i ./src/ansible/inventory.yaml ./src/ansible/playbooks/push-stacks.yaml
