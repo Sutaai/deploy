@@ -24,7 +24,7 @@
 
     - name: Let's try Eleutheria
       ansible.builtin.include_role:
-        name: push-stack
+        name: deploy
       vars:
-        stack: eleutheria
-        owner: deploy
+        deploy_stack: eleutheria
+        deploy_owner: deploy

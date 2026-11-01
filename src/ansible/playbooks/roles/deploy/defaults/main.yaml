@@ -1,0 +1,1 @@
+deploy_deposit_location: "~/stacks/{{ stack }}"
