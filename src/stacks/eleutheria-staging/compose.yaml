@@ -2,7 +2,7 @@ name: bookstack-eleutheria-stagging
 
 services:
   bookstack:
-    restart: unless-stopped
+    restart: no
     image: lscr.io/linuxserver/bookstack:26.09.20260929@sha256:7a6779d345d4d678614aa1a0a8a4d8456aeb98de10dfae700b839c3140c89f39   # https://github.com/linuxserver/docker-bookstack/pkgs/container/bookstack
 
     environment:
@@ -39,7 +39,7 @@ services:
       MAIL_USERNAME:
       MAIL_PASSWORD:
       MAIL_FROM:
-      MAIL_FROM_NAME: Wiki Queer - Staging Environment
+      MAIL_FROM_NAME: WikiQueer - Staging Environment
 
     volumes:
       - bookstack_app_data:/config
