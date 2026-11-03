@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/sutaai/webserver:main
+    image: ghcr.io/sutaai/webserver:main@sha256:9d60f224a98ef52d13f2873ea938d15c5738f77ded099699c0cebcbc93bcebbf
     restart: unless-stopped
     network_mode: host
     #networks:
