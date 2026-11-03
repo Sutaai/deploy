@@ -1,0 +1,39 @@
+services:
+  app:
+    image: ghcr.io/sutaai/webserver:main
+    restart: unless-stopped
+    network_mode: host
+    #networks:
+    #  webserver:
+    init: true
+    environment:
+      CF_API_TOKEN:
+      CROWDSEC_API_KEY:
+      CADDY_INGRESS_NETWORKS: webserver
+      CADDY_DOCKER_EVENT_THROTTLE_INTERVAL: 2000
+
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      # This is not good security practice and this should be evicted, even R/O
+      # https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-1-do-not-expose-the-docker-daemon-socket-even-to-the-containers
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    healthcheck:
+      start_period: 20s
+      interval: 1m
+      retries: 3
+      timeout: 5s
+      test: wget --no-verbose --tries=1 --spider https://hunter.sutaai.dev || exit 1
+
+networks:
+  webserver:
+    external: true
+
+volumes:
+  caddy_data:
+  caddy_config:

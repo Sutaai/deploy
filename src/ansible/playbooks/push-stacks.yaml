@@ -1,4 +1,4 @@
-- name: Deploy Eleutheria (WIP for stacks)
+- name: Deploy All Stacks
   hosts:
     - hunter
 
@@ -22,9 +22,10 @@
               {{ result.files | length }} .age file(s) on controller:
               {% for f in result.files %}- {{ f.path }}{% endfor %}
 
-    - name: Let's try Eleutheria
+    - name: "Push stack"
+      loop: "{{ apps }}"
       ansible.builtin.include_role:
         name: deploy
       vars:
-        deploy_stack: eleutheria
+        deploy_stack: "{{ item }}"
         deploy_owner: deploy

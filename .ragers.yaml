@@ -20,8 +20,18 @@ files:
     recipients:
       - group:all
 
+  - src: src/stacks/eleutheria-staging/.env
+    out: src/stacks/eleutheria-staging/.env.age
+    recipients:
+      - group:all
+
   - src: src/stacks/mariadb/.env
     out: src/stacks/mariadb/.env.age
+    recipients:
+      - group:all
+
+  - src: src/stacks/webserver/.env
+    out: src/stacks/webserver/.env.age
     recipients:
       - group:all
 

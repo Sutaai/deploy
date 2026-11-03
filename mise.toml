@@ -5,3 +5,7 @@ uv = "0.13"
 
 [env]
 _ = { file = ".env" }
+
+[tasks.push-stacks]
+run = "ansible-playbook -i inventory.yaml playbooks/push-stacks.yaml"
+dir = "{{ config_root }}/src/ansible"

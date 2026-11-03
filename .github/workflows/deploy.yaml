@@ -23,9 +23,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y openssh-client
           mkdir ~/.ssh
-          echo "Adding SSH key"
-          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
           echo "Adding host to known hosts"
           echo "${{ vars.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
@@ -42,8 +39,7 @@ jobs:
       - name: Decrypt files
         run: ragers --no-prompt decrypt
 
-      - name: Run Ansible - Push Eleutheria
-      # For now, I'll only test with a single stack, then I'll upgrade to multiples
+      - name: Run Ansible - Push Stacks
         env:
           ANSIBLE_SSH_AGENT: auto
           ANSIBLE_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}

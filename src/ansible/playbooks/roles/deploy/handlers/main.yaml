@@ -1,0 +1,15 @@
+# After some more research, even when flushing handlers, it'll restart the last stack
+# anyway. This stays here for posterity. Or hand up in the archive.
+
+- name: "Deploy : Pull images"
+  community.docker.docker_compose_v2_pull:
+    project_src: "{{ deploy_deposit_location }}"
+
+- name: "Deploy : Recreate project"
+  community.docker.docker_compose_v2:
+    project_src: "{{ deploy_deposit_location }}"
+    state: present
+    recreate: always
+    remove_volumes: false
+    remove_orphans: true
+    assume_yes: true

@@ -1,26 +1,36 @@
 - name: Create stack folder
   ansible.builtin.file:
-    path: "{{ deposit_location }}"
+    path: "{{ deploy_deposit_location }}"
     state: directory
-    owner: "{{ owner }}"
-    group: "{{ owner }}"
+    owner: "{{ deploy_owner }}"
+    group: "{{ deploy_owner }}"
     mode: '0700'
 
 - name: Copy stack
   ansible.builtin.copy:
-    src: "{{ root }}/src/stacks/{{ stack }}/"
-    dest: "{{ deposit_location }}"
-    owner: "{{ owner }}"
-    group: "{{ owner }}"
+    src: "{{ root }}/src/stacks/{{ deploy_stack }}/"
+    dest: "{{ deploy_deposit_location }}"
+    owner: "{{ deploy_owner }}"
+    group: "{{ deploy_owner }}"
     mode: '0600'
+  changed_when: true
+  register: deploy_copy_result
+  # notify:  # See handlers/main.yaml
+  #   - "Deploy : Pull images"
+  #   - "Deploy : Recreate project"
 
-- name: Pull images
-  community.docker.docker_compose_v2_pull:
-    project_src: "{{ deposit_location }}"
+- name: Update containers
+  when: deploy_copy_result.changed  # noqa: no-handler
+  block:
+    - name: "Pull images"
+      community.docker.docker_compose_v2_pull:
+        project_src: "{{ deploy_deposit_location }}"
 
-- name: Recreate project
-  community.docker.docker_compose_v2:
-    project_src: "{{ deposit_location }}"
-    state: present
-    recreate: always
-    remove_orphans: true
+    - name: "Recreate project"
+      community.docker.docker_compose_v2:
+        project_src: "{{ deploy_deposit_location }}"
+        state: present
+        recreate: always
+        remove_volumes: false
+        remove_orphans: true
+        assume_yes: true

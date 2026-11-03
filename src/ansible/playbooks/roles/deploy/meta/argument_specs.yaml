@@ -15,10 +15,11 @@ argument_specs:
 
       deploy_deposit_location:
         type: path
-        default: "~/stacks/{{ stack }}"
+        default: "~/stacks/{{ deploy_stack }}"
         description: |
           Path to where the files will be deposited. By default, this will be set to
-          "~/stacks/{stack}" where "{stack}" is replaced by the corresponding variable.
+          "~/stacks/{deploy_stack}" where "{deploy_stack}" is replaced by the corresponding
+          variable.
 
       deploy_owner:
         type: str

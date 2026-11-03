@@ -3,42 +3,42 @@ name: bookstack-eleutheria
 services:
   bookstack:
     restart: unless-stopped
-    image: lscr.io/linuxserver/bookstack:26.05.20260608@sha256:e3c387ac44a20fa29abcae8426e3e0d8c88b4ccf95d3c091fd9d96c8d0edcd8e   # https://github.com/linuxserver/docker-bookstack/pkgs/container/bookstack
+    image: lscr.io/linuxserver/bookstack:26.09.20260929@sha256:7a6779d345d4d678614aa1a0a8a4d8456aeb98de10dfae700b839c3140c89f39   # https://github.com/linuxserver/docker-bookstack/pkgs/container/bookstack
     environment:
-      PUID: $PUID
-      PGID: $PGID
+      PUID:
+      PGID:
       TZ: Europe/Paris
       # App config & session
       APP_LANG: fr
       APP_TIMEZONE: Europe/Paris
       APP_URL: https://wikiqueer.eu
-      APP_KEY: $APP_KEY
-      APP_PROXIES: $APP_PROXIES
-      SESSION_LIFETIME: $SESSION_LIFETIME
+      APP_KEY:
+      APP_PROXIES:
+      SESSION_LIFETIME:
       # DB
       DB_HOST: mariadb
       DB_PORT: 3306
-      DB_DATABASE: $DB_DATABASE
-      DB_USERNAME: $DB_USERNAME
-      DB_PASSWORD: $DB_PASSWORD
+      DB_DATABASE: eleutheria-edge
+      DB_USERNAME:
+      DB_PASSWORD:
       # Discord intergration
-      DISCORD_APP_ID: $DISCORD_APP_ID
-      DISCORD_APP_SECRET: $DISCORD_APP_SECRET
+      DISCORD_APP_ID:
+      DISCORD_APP_SECRET:
       DISCORD_AUTO_REGISTER: false
       DISCORD_AUTO_CONFIRM_EMAIL: false
       # Github integration
-      GITHUB_APP_ID: $GITHUB_APP_ID
-      GITHUB_APP_SECRET: $GITHUB_APP_SECRET
+      GITHUB_APP_ID:
+      GITHUB_APP_SECRET:
       # Mail config
       MAIL_DRIVER: smtp
       MAIL_VERIFY_SSL: true
-      MAIL_HOST: $MAIL_HOST
-      MAIL_PORT: $MAIL_PORT
-      MAIL_ENCRYPTION: $MAIL_ENCRYPTION
-      MAIL_USERNAME: $MAIL_USERNAME
-      MAIL_PASSWORD: $MAIL_PASSWORD
-      MAIL_FROM: $MAIL_FROM
-      MAIL_FROM_NAME: Wiki Queer
+      MAIL_HOST:
+      MAIL_PORT:
+      MAIL_ENCRYPTION:
+      MAIL_USERNAME:
+      MAIL_PASSWORD:
+      MAIL_FROM:
+      MAIL_FROM_NAME: WikiQueer
 
     volumes:
       - bookstack_app_data:/config
