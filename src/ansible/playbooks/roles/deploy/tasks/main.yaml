@@ -13,7 +13,6 @@
     owner: "{{ deploy_owner }}"
     group: "{{ deploy_owner }}"
     mode: '0600'
-  changed_when: true
   register: deploy_copy_result
   # notify:  # See handlers/main.yaml
   #   - "Deploy : Pull images"
