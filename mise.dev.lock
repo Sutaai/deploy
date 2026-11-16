@@ -100,4 +100,4 @@ provenance = "github-attestations"
 version = "26.11.0"
 backend = "pypi:ansible-dev-tools"
 specifiers = ["26.11.0"]
-uv = { path = ".mise/locks/mise.dev/pypi-ansible-dev-tools/26.11.0", digest = "sha256:3b62235700d75af11e71a26e9b327b3e2f152d8a5eff23c2135270ae70886568" }
+uv = { path = ".mise/locks/mise.dev/pypi-ansible-dev-tools/26.11.0", digest = "sha256:1b458476044398dd55f1814d9d746666d3196c44f03fdb2ce668c373b8cd2fef" }
