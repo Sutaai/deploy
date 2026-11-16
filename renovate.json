@@ -12,6 +12,7 @@
       "automerge": true,
       "matchCurrentVersion": "!/^0/",
       "matchUpdateTypes": [
+        "patch",
         "pin",
         "pinDigest",
         "digest"
