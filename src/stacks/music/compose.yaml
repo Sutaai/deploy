@@ -6,20 +6,21 @@ services:
       - 127.0.0.1:11446:4533
 
     environment:
-      ND_BASEURL: ${NAVI_URL:-https://music.hunter.sutaai.dev}
+      ND_BASEURL: ${ND_BASEURL:-https://music.hunter.sutaai.dev}
       ND_ENABLEINSIGHTSCOLLECTOR: false
 
-      ND_PASSWORDENCRYPTIONKEY:
       ND_AUTHREQUESTLIMIT: 10
       ND_AUTHWINDOWLENGTH: 30m
 
       ND_ENABLESHARING: true
+      ND_UIWELCOMEMESSAGE: Machine, turn back now. The layers of this palace, are not for your kind. Turn back, or you will be crossing the will of God.
 
+      # Located in .env
       ND_LASTFM_APIKEY:
       ND_LASTFM_SECRET:
       ND_SPOTIFY_ID:
       ND_SPOTIFY_SECRET:
-      ND_UIWELCOMEMESSAGE: Machine, turn back now. The layers of this palace, are not for your kind. Turn back, or you will be crossing the will of God.
+      ND_PASSWORDENCRYPTIONKEY:
 
     volumes:
       - "navidrome-data:/data"
