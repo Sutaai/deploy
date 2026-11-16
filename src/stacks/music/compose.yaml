@@ -1,6 +1,6 @@
 services:
   navidrome:
-    image: deluan/navidrome:latest
+    image: deluan/navidrome:latest@sha256:38dc2727bfcfd5ede290f8ada114fc90368146f265ae4701ddddbcbe2a44ee52
     restart: unless-stopped
     ports:
       - 127.0.0.1:11446:4533
@@ -26,7 +26,7 @@ services:
       - "$MUSIC_BASE_PATH/library:/music:ro"
 
   beets:
-    image: linuxserver/beets:latest
+    image: linuxserver/beets:latest@sha256:ee3cd57afcd06077338a4fed68b4d050e31ec18cd6552d708a36e81932258a83
     restart: unless-stopped
 
     environment:
