@@ -1,0 +1,6 @@
+# This file defines a few defaults when using mise. It is advised to rather use
+# ".miserc.local.toml" on your machine to configure the environment you wish to use mise into.
+#
+# This file only provides some defaults for this project.
+
+env = []

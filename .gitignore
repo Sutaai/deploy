@@ -1,6 +1,9 @@
-keys/private/*
-!keys/private/.gitignore
+# Mise
+.mise/
+.miserc.local.toml
 
+# Ragers
 .identity
 
+# Various
 **/.env

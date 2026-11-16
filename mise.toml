@@ -1,7 +1,11 @@
 [tools]
-ansible = "14"
-"cargo:https://codeberg.org/Sutaai/Ragers" = { version = "latest", bin = "ragers", crate = "ragers" }
+ansible = "14.5.0"
 uv = "0.13.7"
+
+[tools."cargo:https://codeberg.org/Sutaai/Ragers"]
+version = "branch:push/0.3.0.dev2"
+bin = "ragers"
+crate = "ragers"
 
 [env]
 _ = { file = ".env" }

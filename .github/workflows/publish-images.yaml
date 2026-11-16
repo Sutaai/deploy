@@ -3,8 +3,8 @@ name: Publish Docker images
 on:
   push:
     paths:
-      - images/webserver/**/*
-      - .github/workflows/publish-images.yml
+      - images/**/*
+      - .github/workflows/publish-images.yaml
       - LICENSE
     branches:
       - main
@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [webserver]
+        service:
+          - webserver
       fail-fast: false
     permissions:
       contents: read

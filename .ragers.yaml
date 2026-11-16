@@ -30,6 +30,16 @@ files:
     recipients:
       - group:all
 
+  - src: src/stacks/music/.env
+    out: src/stacks/music/.env.age
+    recipients:
+      - group:all
+
+  - src: src/stacks/music/beets/config.yaml
+    out: src/stacks/music/beets/config.yaml.age
+    recipients:
+      - group:all
+
   - src: src/stacks/webserver/.env
     out: src/stacks/webserver/.env.age
     recipients:
