@@ -3,10 +3,9 @@
 lockfile_version = 4
 
 [[tools.ansible]]
-version = "14.5.0"
+version = "15.0.0"
 backend = "pypi:ansible"
-specifiers = ["14.5.0"]
-uv = { path = ".mise/locks/ansible/14.5.0~0672620e", digest = "sha256:bc570d2b6de6d2eb612f62d942d299920179ef6abc4a1ec385d789fb9b8cc26a" }
+specifiers = ["15.0.0"]
 
 [tools.ansible.options]
 expose = '["ansible-core"]'
