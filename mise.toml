@@ -1,5 +1,5 @@
 [tools]
-ansible = "14.5.0"
+ansible = "14.6.0"
 uv = "0.13.9"
 
 [tools."cargo:https://codeberg.org/Sutaai/Ragers"]
