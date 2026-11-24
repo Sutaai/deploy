@@ -1,6 +1,6 @@
 [tools]
 ansible = "14.6.0"
-uv = "0.13.9"
+uv = "0.13.10"
 
 [tools."cargo:https://codeberg.org/Sutaai/Ragers"]
 version = "branch:push/0.3.0.dev2"
